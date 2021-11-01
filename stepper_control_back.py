@@ -19,7 +19,7 @@ while True:
     if action== 0:
       MotorInput.zero()
       MotorInput.delay
-      previous_angle= f.read("slider1")
+      previous_angle= 0
     else:
       MotorInput.goAngle()
       previous_angle= f.read("slider1")
