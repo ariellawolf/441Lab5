@@ -9,18 +9,18 @@ for pin in pins:
 
 photoResistorPin= 26
 GPIO.setup(photoResistorPin, GPIO.IN) 
-
+with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
 previous_angle=180
 
 while True:
   with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
     action = int(f.read())
-  MotorInput= Stepper(action, previous_angle)
-  if action== 0:
-    MotorInput.zero()
-    MotorInput.delay
-    previous_angle= int(f.read())
-  else:
-    MotorInput.goAngle()
-    previous_angle= int(f.read())
+    MotorInput= Stepper(action, previous_angle)
+    if action== 0:
+      MotorInput.zero()
+      MotorInput.delay
+      previous_angle= int(f.read())
+    else:
+      MotorInput.goAngle()
+      previous_angle= int(f.read())
   
