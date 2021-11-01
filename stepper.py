@@ -2,7 +2,7 @@ import time
 import RPi.GPIO as GPIO
 
 class Stepper:
-  
+  GPIO.setmode(GPIO.BCM)
   sequence = [ [1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
         [0,0,1,0],[0,0,1,1],[0,0,0,1],[1,0,0,1] ]
   pins = [23,24,16,20] # controller inputs: in1, in2, in3, in4
