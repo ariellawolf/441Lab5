@@ -22,5 +22,5 @@ while True:
       previous_angle= 0
     else:
       MotorInput.goAngle()
-      previous_angle= f.read("slider1")
+      previous_angle= f.read()
   
