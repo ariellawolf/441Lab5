@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import stepper.py
+from stepper import Stepper
 
 GPIO.setmode(GPIO.BCM)
 
@@ -13,7 +13,7 @@ GPIO.setup(photoResistorPin, GPIO.IN)
 with open("stepper-angle.txt",'r') as f:
   action = int(f.read())
 
-MotorInput= stepper.Stepper(action)
+MotorInput= Stepper(action)
 if ("0" in action):
   MotorInput.zero()
   MotorInput.delay
