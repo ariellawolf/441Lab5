@@ -10,7 +10,7 @@ for pin in pins:
 photoResistorPin= 26
 GPIO.setup(photoResistorPin, GPIO.IN) 
 
-with open("/cgi-bin/stepper-angle.txt",'r') as f:
+with open("/cgi/stepper-angle.txt",'r') as f:
   action = int(f.read())
 
 MotorInput= Stepper(action)
