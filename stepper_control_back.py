@@ -10,7 +10,7 @@ for pin in pins:
 photoResistorPin= 26
 GPIO.setup(photoResistorPin, GPIO.IN) 
 with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
-previous_angle=180
+  previous_angle=180
 
 while True:
   with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
