@@ -22,5 +22,5 @@ while True:
       previous_angle= 0
     else:
       MotorInput.goAngle()
-      previous_angle= int(float(f.read()))
+      previous_angle= float(f.read())
   
