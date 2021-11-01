@@ -16,6 +16,7 @@ with open("stepper-angle.txt",'r') as f:
 MotorInput= stepper.Stepper(action)
 if ("0" in action):
   MotorInput.zero()
+  MotorInput.delay
 else:
   MotorInput.GoAngle()
   

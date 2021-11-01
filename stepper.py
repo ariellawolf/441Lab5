@@ -20,8 +20,8 @@ class Stepper:
   def angleToHalfSteps(self): #takes difference in angle input and converts to half steps
     return (self.new_angle-self.cur_angle)/360*512*8
 
-  def delay_us(self): # use microseconds to improve time resolution
-    endTime = time.time() + float(self.tus)/ float(1E6)
+  def delay_us(self,tus): # use microseconds to improve time resolution
+    endTime = time.time() + float(tus)/ float(1E6)
     while time.time() < endTime:
       pass
 
@@ -41,7 +41,7 @@ class Stepper:
     elif self.state < 0: self.state = 7
     for pin in range(4):    # 4 pins that need to be energized
         GPIO.output(self.pins[pin], self.sequence[self.state][pin])
-    self.delay_us(self.tus)
+    self.delay_us(1000)
 
   def goAngle(self): 
     # move the actuation sequence a given number of half steps
