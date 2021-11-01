@@ -11,9 +11,10 @@ class Stepper:
 
   photoResistorPin= 6     
 
-  def __init__(self, angle):
+  def __init__(self, angle, previous_angle):
     self.state= 0 # current position in stater sequence
-    self.cur_angle = angle
+    self.cur_angle = previous_angle
+    self.new_angle= angle
     self.steps= self.angleToHalfSteps()
     self.tus= 1/self.speed*60*10^6 #converts RPM to usec/rev
 
