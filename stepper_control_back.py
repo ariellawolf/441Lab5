@@ -16,7 +16,7 @@ while True:
   with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
     action = int(f.read())
   MotorInput= Stepper(action, previous_angle)
-  if ("0" in action):
+  if action== 0:
     MotorInput.zero()
     MotorInput.delay
     previous_angle= int(f.read())
