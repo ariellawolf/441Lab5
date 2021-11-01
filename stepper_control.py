@@ -1,18 +1,16 @@
 #!/usr/bin/python37all
 import cgi
-import cgitb
-cgitb.enable()
 
 action = cgi.FieldStorage() #retrieve button submission
 selectedAngle=180
 if ("angle" in action):
   selectedAngle = action.getvalue("slider1")
-  with open('/cgi-bin/stepper_control.py','w') as f:
+  with open('stepper_control.py','w') as f:
     f.write(str(selectedAngle))
 elif ("zero" in action):
   selectedAngle = str(0)
-  with open('/cgi-bin/stepper_control.py','w') as f:
-    f.write("0")
+  with open('stepper_control.py','w') as f:
+    f.write(str(0))
 
 print("Content-type: text/html\n\n")
 print('<html>')
