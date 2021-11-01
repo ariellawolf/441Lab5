@@ -21,6 +21,6 @@ while True:
     MotorInput.delay
     previous_angle= int(f.read())
   else:
-    MotorInput.GoAngle()
+    MotorInput.goAngle()
     previous_angle= int(f.read())
   
