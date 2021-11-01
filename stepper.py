@@ -14,7 +14,7 @@ class Stepper:
   def __init__(self, angle):
     self.state= 0 # current position in stater sequence
     self.cur_angle = angle
-    self.steps= self.angleToHalfSteps(angle)
+    self.steps= self.angleToHalfSteps()
     self.tus= 1/self.speed*60*10^6 #converts RPM to usec/rev
 
   def angleToHalfSteps(self): #takes difference in angle input and converts to half steps
