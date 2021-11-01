@@ -16,7 +16,7 @@ class Stepper:
     self.cur_angle = previous_angle
     self.new_angle= angle
     self.steps= self.angleToHalfSteps()
-    self.tus= 1/self.speed*60*10^6 #converts RPM to usec/rev
+    
 
   def angleToHalfSteps(self): #takes difference in angle input and converts to half steps
     return (self.new_angle-self.cur_angle)/360*512*8
