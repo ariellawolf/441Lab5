@@ -29,11 +29,17 @@ class Stepper:
 
   def decideDirection(self): #checks which direction is fastest
     if (0 < (self.new_angle - self.cur_angle) < 180):
-      self.dir= 1
-    elif (180 > (self.new_angle - self.cur_angle) > 0):
-      self.dir= 1
+      self.dir= -1 #cw
+    elif ((self.new_angle - self.cur_angle) > 180):
+      if (self.new_angle>270) and (self.cur_angle<90):
+        self.dir= 1 #ccw
+    elif(-180<(self.new_angle-self.cur_angle)<0):
+      self.dir= 1 #ccw
+    elif((self.new_angle - self.cur_angle) < -180):
+      if (self.new_angle<90) and (self.cur_angle>270):
+          self.dir= -1 #cw
     else:
-      self.dir= -1
+      self.dir= 1 #ccw
 
   def halfstep(self): #run through different pins to set states
     # dir = +/- 1 (ccw/ cw)
@@ -47,8 +53,8 @@ class Stepper:
 
   def goAngle(self): 
     # move the actuation sequence a given number of half steps
-    self.halfSteps= int(self.angleToHalfSteps())
-    for step in range(0,self.halfSteps):
+    self.number_halfSteps= int(self.angleToHalfSteps())
+    for step in range(0,self.number_halfSteps):
       self.halfstep()
   
   def zero(self):
