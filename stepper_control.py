@@ -7,10 +7,10 @@ selectedAngle=180
 
 if ("angle" in action):
   selectedAngle = action.getvalue('slider1')
-  data= {"NewAngle":selectedAngle}
+  data= {"NewAngle":"selectedAngle"}
 elif ("zero" in action):
   selectedAngle = 0
-  data= {"NewAngle":selectedAngle}
+  data= {"NewAngle":"selectedAngle"}
 
 with open('/usr/lib/cgi-bin/stepper-angle.txt','w') as f:
   json.dump(data,f)
