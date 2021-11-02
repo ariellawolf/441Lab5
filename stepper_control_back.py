@@ -15,7 +15,8 @@ with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
 while True:
   with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
     angleRead= f.read()
-  action= int(float(angleRead.strip()))
+  print(int(float(angleRead.strip())))
+  action=0
   MotorInput= Stepper(action, previous_angle)
   if action== 0:
     MotorInput.zero()
