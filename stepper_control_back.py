@@ -28,4 +28,4 @@ while True:
     #   previous_angle= action
   print(type(action))
   print(action)
-  print(action.strip())
+  print(float(action.strip()))
