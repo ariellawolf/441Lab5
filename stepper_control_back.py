@@ -21,6 +21,7 @@ while True:
   #action = int(angleRead['slider1'])
   MotorInput= Stepper(action, previous_angle)
   if action== 0:
+    print("motor zeroing")
     MotorInput.zero()
     MotorInput.delay
     previous_angle= 0
