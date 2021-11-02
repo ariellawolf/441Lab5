@@ -4,7 +4,7 @@ import cgi
 action = cgi.FieldStorage() #retrieve button submission
 selectedAngle=180
 if ("angle" in action):
-  selectedAngle = action.getvalue("slider1")
+  selectedAngle = action.getvalue('slider1')
   with open('stepper_control.py','w') as f:
     f.write(str(selectedAngle))
 elif ("zero" in action):
