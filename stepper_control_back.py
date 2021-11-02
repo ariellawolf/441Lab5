@@ -27,3 +27,4 @@ while True:
     #   MotorInput.goAngle()
     #   previous_angle= action
   print(type(action))
+  print(action)
