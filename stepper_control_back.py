@@ -15,7 +15,7 @@ with open('/usr/lib/cgi-bin/stepper-angle.txt','r') as f:
 
 while True:
   with open('/usr/lib/cgi-bin/stepper-angle.txt','r') as f:
-    angleRead= json.load()
+    angleRead= json.load(f)
   action = int(angleRead['slider1'])
   MotorInput= Stepper(action, previous_angle)
   if action== 0:
