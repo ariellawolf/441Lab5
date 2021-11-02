@@ -14,10 +14,11 @@ GPIO.setup(photoResistorPin, GPIO.IN)
 previous_angle=180
 
 while True:
+  
   with open('/usr/lib/cgi-bin/stepper-angle.txt','r') as f:
     angleRead= json.load(f)
-  print(angleRead)  
-  action=180
+    action= int(angleRead['NewAngle'])
+
   #action = int(angleRead['slider1'])
   MotorInput= Stepper(action, previous_angle)
   if action== 0:
