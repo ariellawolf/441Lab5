@@ -14,8 +14,8 @@ with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
 
 while True:
   with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
-    print(f.read())
-    print(f.read().strip())
+    print('this is unstripped: ',  f.read())
+    print('this is stripped:',f.read().strip())
     """"
     action = float(f.read().strip())
     
