@@ -14,7 +14,7 @@ with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
 
 while True:
   with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
-    action= f.read
+    action= f.read()
 
     # action = float(f.read().strip())
     
