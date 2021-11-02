@@ -24,7 +24,6 @@ while True:
   if action== 0:
     print("motor zeroing")
     MotorInput.zero()
-    MotorInput.delay
     previous_angle= 0
   else:
     print("motor turning")
