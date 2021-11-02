@@ -1,16 +1,19 @@
 #!/usr/bin/python37all
 import cgi
+import json
 
 action = cgi.FieldStorage() #retrieve button submission
 selectedAngle=180
 if ("angle" in action):
-  selectedAngle = action.getvalue('slider1')
+  selectedAngle = int(action.getvalue('slider1'))
+  dataDump= {"NewAngle":selectedAngle}
   with open('stepper_control.py','w') as f:
-    f.write(str(selectedAngle))
+    json.dump(dataDump,f)
 elif ("zero" in action):
-  selectedAngle = str(0)
+  selectedAngle = 0
+  dataDump= {"NewAngle":0}
   with open('stepper_control.py','w') as f:
-    f.write(str(0))
+    json.dump(dataDump,f)
 
 print("Content-type: text/html\n\n")
 print('<html>')

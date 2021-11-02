@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import json
 from stepper import Stepper
 
 GPIO.setmode(GPIO.BCM)
@@ -9,14 +10,13 @@ for pin in pins:
 
 photoResistorPin= 26
 GPIO.setup(photoResistorPin, GPIO.IN) 
-with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
+with open('/usr/lib/cgi-bin/stepper-angle.txt','r') as f:
   previous_angle=180
 
 while True:
-  with open("/usr/lib/cgi-bin/stepper-angle.txt",'r') as f:
-    angleRead= f.read()
-  print(int(float(angleRead.strip())))
-  action=0
+  with open('/usr/lib/cgi-bin/stepper-angle.txt','r') as f:
+    angleRead= json.load()
+  action = int(angleRead['slider1'])
   MotorInput= Stepper(action, previous_angle)
   if action== 0:
     MotorInput.zero()

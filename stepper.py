@@ -10,6 +10,7 @@ class Stepper:
     GPIO.setup(pin, GPIO.OUT, initial=0)
 
   photoResistorPin= 6     
+  GPIO.setup(photoResistorPin,GPIO.IN)
 
   def __init__(self, angle, previous_angle):
     self.state= 0 # current position in stater sequence
