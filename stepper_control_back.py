@@ -25,6 +25,7 @@ while True:
     MotorInput.delay
     previous_angle= 0
   else:
+    print("motor turning")
     MotorInput.goAngle()
     previous_angle= action
  
