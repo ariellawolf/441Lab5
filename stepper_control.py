@@ -4,16 +4,16 @@ import json
 
 action = cgi.FieldStorage() #retrieve button submission
 selectedAngle=180
+
 if ("angle" in action):
-  selectedAngle = int(action.getvalue('slider1'))
-  dataDump= {"NewAngle":selectedAngle}
-  with open('/usr/lib/cgi-bin/stepper-angle.txt','w') as f:
-    json.dump(dataDump,f)
+  selectedAngle = action.getvalue('slider1')
+  data= {"NewAngle":selectedAngle}
 elif ("zero" in action):
   selectedAngle = 0
-  dataDump= {"NewAngle":selectedAngle}
-  with open('/usr/lib/cgi-bin/stepper-angle.txt','w') as f:
-    json.dump(dataDump,f)
+  data= {"NewAngle":selectedAngle}
+
+with open('/usr/lib/cgi-bin/stepper-angle.txt','w') as f:
+  json.dump(data,f)
 
 print("Content-type: text/html\n\n")
 print('<html>')

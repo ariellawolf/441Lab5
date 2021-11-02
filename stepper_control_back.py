@@ -19,7 +19,6 @@ while True:
     angleRead= json.load(f)
     action= int(angleRead['NewAngle'])
 
-  #action = int(angleRead['slider1'])
   MotorInput= Stepper(action, previous_angle)
   if action== 0:
     print("motor zeroing")
