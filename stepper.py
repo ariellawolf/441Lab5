@@ -31,9 +31,9 @@ class Stepper:
   for pin in pins:
     GPIO.setup(pin, GPIO.OUT, initial=0)
 
-  photoResistorPin= 6
+  
   LED= 6     
-  GPIO.setup(photoResistorPin,GPIO.IN)
+  
   GPIO.setup(LED,GPIO.OUT)
 
   def __init__(self, angle, previous_angle):
