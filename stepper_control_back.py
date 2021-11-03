@@ -8,8 +8,8 @@ pins = [23,24,16,20] # controller inputs: in1, in2, in3, in4
 for pin in pins:
   GPIO.setup(pin, GPIO.OUT, initial=0)
 
-photoResistorPin= 26
-GPIO.setup(photoResistorPin, GPIO.IN) 
+LED= 6
+GPIO.setup(LED, GPIO.OUT) 
 
 previous_angle=180
 
@@ -26,6 +26,7 @@ while True:
     previous_angle= 0
   else:
     print("motor turning")
+
     MotorInput.goAngle()
     previous_angle= action
  
