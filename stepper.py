@@ -83,6 +83,7 @@ class Stepper:
     for step in range(number_halfSteps):
       print(step)
       self.halfstep()
+    time.delay_us(5000)
     
   
   def zero(self):
