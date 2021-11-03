@@ -15,10 +15,10 @@ previous_angle=180
 
 while True:
   
-  # with open('/usr/lib/cgi-bin/stepper-angle.txt','r') as f:
-  #   angleRead= json.load(f)
-  #   action= int(angleRead['NewAngle'])
-  action= 255
+  with open('/usr/lib/cgi-bin/stepper-angle.txt','r') as f:
+    angleRead= json.load(f)
+    action= int(angleRead['NewAngle'])
+  
   MotorInput= Stepper(action, previous_angle)
   if action== 0:
     print("motor zeroing")
