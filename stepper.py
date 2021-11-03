@@ -83,11 +83,10 @@ class Stepper:
     for step in range(number_halfSteps):
       print(step)
       self.halfstep()
-    self.cur_angle= self.new_angle
+    
   
   def zero(self):
     # move the actuation sequence until photoresistor reads low
-    self.new_angle=0
     self.input=self.myADC.read(0)
     print(self.input)
     while self.input<250:

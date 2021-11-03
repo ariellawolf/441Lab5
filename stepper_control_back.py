@@ -12,6 +12,8 @@ LED= 26
 GPIO.setup(LED, GPIO.OUT) 
 
 previous_angle=180
+action=180
+MotorInput= Stepper(action, previous_angle,0x48)
 
 while True:
   
@@ -19,15 +21,16 @@ while True:
     angleRead= json.load(f)
     action= int(angleRead['NewAngle'])
   
-  MotorInput= Stepper(action, previous_angle,0x48)
+  
   if action== 0:
+    MotorInput.new_angle=0
     print("motor zeroing")
     MotorInput.zero()
     GPIO.output(LED,0)
-    previous_angle= 0
+    MotorInput.cur_angle= 0
   else:
     print("motor turning")
-
+    MotorInput.new_angle=action
     MotorInput.goAngle()
-    previous_angle= action
+    MotorInput.cur_angle= action
  
