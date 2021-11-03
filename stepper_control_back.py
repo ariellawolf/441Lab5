@@ -23,6 +23,7 @@ while True:
   if action== 0:
     print("motor zeroing")
     MotorInput.zero()
+    GPIO.output(LED,0)
     previous_angle= 0
   else:
     print("motor turning")
