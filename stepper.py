@@ -31,10 +31,8 @@ class Stepper:
   for pin in pins:
     GPIO.setup(pin, GPIO.OUT, initial=0)
 
-  
   LED= 6     
-  
-  GPIO.setup(LED,GPIO.OUT)
+  GPIO.setup(LED,GPIO.OUT, initial=0)
 
   def __init__(self, angle, previous_angle):
     self.state= 0 # current position in stater sequence
@@ -86,11 +84,11 @@ class Stepper:
     self.new_angle=0
     self.adc= ADC(0x48)
     self.input=self.adc.read(0)
-    GPIO.output(self.LED,1)
+    GPIO.output(Stepper.LED,1)
     print(self.input)
     while self.input>0:
       self.halfstep()
-      GPIO.output(self.LED,1)
+      GPIO.output(Stepper.LED,1)
       self.input= self.adc.read(0)
     
 
