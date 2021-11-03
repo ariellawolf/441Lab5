@@ -90,7 +90,7 @@ class Stepper:
     print("self.new_angle=",self.new_angle)
     print("self.cur_angle=",self.cur_angle)
     self.angleToHalfSteps()    
-    for step in range(int(self.halfsteps):
+    for step in range(int(self.halfsteps)):
       self.halfstep()
     time.sleep(1)
     
