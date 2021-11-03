@@ -66,7 +66,7 @@ class Stepper:
   def halfstep(self): #run through different pins to set states
     # dir = +/- 1 (ccw/ cw)
     self.decideDirection()
-    self.state += self.dir
+    self.state = self.state + self.dir
     if self.state > 7: self.state = 0
     elif self.state < 0: self.state = 7
     for pin in range(4):    # 4 pins that need to be energized
@@ -75,9 +75,10 @@ class Stepper:
 
   def goAngle(self): 
     # move the actuation sequence a given number of half steps
-    self.number_halfSteps= int(self.angleToHalfSteps())
-    for step in range(0,self.number_halfSteps):
+    number_halfSteps= (self.new_angle-self.cur_angle)/360*512*8
+    for step in range(0,number_halfSteps):
       self.halfstep()
+    self.cur_angle= self.new_angle
   
   def zero(self):
     # move the actuation sequence until photoresistor reads low
