@@ -90,5 +90,6 @@ class Stepper:
       self.halfstep()
       GPIO.output(Stepper.LED,1)
       self.input= self.adc.read(0)
+      print(self.input)
     
 
