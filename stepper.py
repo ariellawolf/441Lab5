@@ -56,7 +56,7 @@ class Stepper:
       if (self.new_angle>270) and (self.cur_angle<90):
         self.dir= 1 #ccw
     elif(-180<(self.new_angle-self.cur_angle)<0):
-      self.dir= 1 #ccw
+      self.dir= 1 #ccw-- this works
     elif((self.new_angle - self.cur_angle) < -180):
       if (self.new_angle<90) and (self.cur_angle>270):
           self.dir= -1 #cw
@@ -79,9 +79,7 @@ class Stepper:
     print("self.new_angle=",self.new_angle)
     print("self.cur_angle=",self.cur_angle)
     number_halfSteps= abs(int((self.new_angle-self.cur_angle)/360*512*8))
-    print(number_halfSteps)
     for step in range(number_halfSteps):
-      print(step)
       self.halfstep()
     time.sleep(1)
     
