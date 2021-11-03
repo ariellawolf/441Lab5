@@ -78,6 +78,7 @@ class Stepper:
     print("doing goAngle")
     number_halfSteps= int((self.new_angle-self.cur_angle)/360*512*8)
     for step in range(0,number_halfSteps):
+      print(step)
       self.halfstep()
     self.cur_angle= self.new_angle
   
