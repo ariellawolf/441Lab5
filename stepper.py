@@ -99,7 +99,7 @@ class Stepper:
     # move the actuation sequence until photoresistor reads low
     self.input=self.myADC.read(0)
     print(self.input)
-    while self.input<150:
+    while self.input<160:
       self.halfstep()
       GPIO.output(Stepper.LED,1)
       self.input= self.myADC.read(0)
