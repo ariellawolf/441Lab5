@@ -75,6 +75,7 @@ class Stepper:
 
   def goAngle(self): 
     # move the actuation sequence a given number of half steps
+    print("doing goAngle")
     number_halfSteps= int((self.new_angle-self.cur_angle)/360*512*8)
     for step in range(0,number_halfSteps):
       self.halfstep()
