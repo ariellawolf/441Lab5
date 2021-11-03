@@ -91,6 +91,6 @@ class Stepper:
     while self.input>0:
       self.halfstep()
       GPIO.output(self.LED,1)
-      self.input= GPIO.input(self.photoResistorPin)
+      self.input= self.adc.read(0)
     
 
