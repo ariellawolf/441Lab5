@@ -8,7 +8,7 @@ pins = [23,24,16,20] # controller inputs: in1, in2, in3, in4
 for pin in pins:
   GPIO.setup(pin, GPIO.OUT, initial=0)
 
-LED= 6
+LED= 26
 GPIO.setup(LED, GPIO.OUT) 
 
 previous_angle=180
