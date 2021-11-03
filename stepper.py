@@ -44,12 +44,12 @@ class Stepper:
   def angleToHalfSteps(self): #takes difference in angle input and converts to half steps
     if (self.new_angle>270) and (self.cur_angle<90):
       self.angledif= 360-self.new_angle+self.cur_angle
-      return self.angledif/360*512*8
+      self.halfsteps= self.angledif/360*512*8
     elif (self.new_angle<00) and (self.cur_angle<270):
       self.angledif= 360-self.cur_angle+self.new_angle
-      return self.angledif/360*512*8
+      self.halfsteps= self.angledif/360*512*8
     else:
-      return (self.new_angle-self.cur_angle)/360*512*8
+      self.halfsteps= (self.new_angle-self.cur_angle)/360*512*8
 
 
 
@@ -89,8 +89,8 @@ class Stepper:
     print("doing goAngle")
     print("self.new_angle=",self.new_angle)
     print("self.cur_angle=",self.cur_angle)
-    number_halfSteps= int(self.angleToHalfSteps())
-    for step in range(number_halfSteps):
+    self.angleToHalfSteps()    
+    for step in range(self.halfsteps):
       self.halfstep()
     time.sleep(1)
     
