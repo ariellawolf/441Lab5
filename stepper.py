@@ -42,7 +42,18 @@ class Stepper:
     self.myADC=ADC(address)
 
   def angleToHalfSteps(self): #takes difference in angle input and converts to half steps
-    return (self.new_angle-self.cur_angle)/360*512*8
+    if (self.new_angle>270) and (self.cur_angle<90):
+      self.angledif= 360-self.new_angle+self.cur_angle
+      return self.angledif/360*512*8
+    elif (self.new_angle<00) and (self.cur_angle<270):
+      self.angledif= 360-self.cur_angle+self.new_angle
+      return self.angledif/360*512*8
+    else:
+      return (self.new_angle-self.cur_angle)/360*512*8
+
+
+
+    
 
   def delay_us(self,tus): # use microseconds to improve time resolution
     endTime = time.time() + float(tus)/ float(1E6)
@@ -78,7 +89,7 @@ class Stepper:
     print("doing goAngle")
     print("self.new_angle=",self.new_angle)
     print("self.cur_angle=",self.cur_angle)
-    number_halfSteps= abs(int((self.new_angle-self.cur_angle)/360*512*8))
+    number_halfSteps= int(self.angleToHalfSteps)
     for step in range(number_halfSteps):
       self.halfstep()
     time.sleep(1)
