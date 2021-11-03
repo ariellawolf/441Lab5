@@ -85,7 +85,7 @@ class Stepper:
     GPIO.output(Stepper.LED,1)
     self.input=self.myADC.read(0)
     print(self.input)
-    while self.input>250:
+    while self.input<250:
       self.halfstep()
       GPIO.output(Stepper.LED,1)
       self.input= self.myADC.read(0)
