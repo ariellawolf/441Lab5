@@ -49,7 +49,7 @@ class Stepper:
       self.angledif= 360-self.cur_angle+self.new_angle
       self.halfsteps= self.angledif/360*512*8
     else:
-      self.halfsteps= (self.new_angle-self.cur_angle)/360*512*8
+      self.halfsteps= abs(self.new_angle-self.cur_angle)/360*512*8
 
 
 
