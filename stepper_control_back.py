@@ -19,7 +19,7 @@ while True:
     angleRead= json.load(f)
     action= int(angleRead['NewAngle'])
   
-  MotorInput= Stepper(action, previous_angle)
+  MotorInput= Stepper(action, previous_angle,0x48)
   if action== 0:
     print("motor zeroing")
     MotorInput.zero()

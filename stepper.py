@@ -34,12 +34,12 @@ class Stepper:
   LED= 26     
   GPIO.setup(LED,GPIO.OUT, initial=0)
 
-  def __init__(self, angle, previous_angle):
+  def __init__(self, angle, previous_angle, address):
     self.state= 0 # current position in stater sequence
     self.cur_angle = previous_angle
     self.new_angle= angle
     self.steps= self.angleToHalfSteps()
-    
+    self.myADC=ADC(address)
 
   def angleToHalfSteps(self): #takes difference in angle input and converts to half steps
     return (self.new_angle-self.cur_angle)/360*512*8
@@ -82,14 +82,12 @@ class Stepper:
   def zero(self):
     # move the actuation sequence until photoresistor reads low
     self.new_angle=0
-    self.adc= ADC(0x48)
-    self.input=self.adc.read(0)
     GPIO.output(Stepper.LED,1)
     print(self.input)
     while self.input>250:
       self.halfstep()
       GPIO.output(Stepper.LED,1)
-      self.input= self.adc.read(0)
+      self.input= self.myADC.read(0)
       print(self.input)
     
 
